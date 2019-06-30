@@ -67,4 +67,44 @@ function rightLetter(letter) {
 }
 
 
+function roundComplete() {
 
+    console.log("winn: " + wins + " | loss: " + losses + " | guesses: " + guessesLeft);
+
+    
+    document.getElementById("guesses-left").textContent = guessesLeft;
+
+    document.getElementById("blanks").textContent = rightGuess.join(" ");
+
+    document.getElementById("already-guessed").textContent = wrongGuess.join(" ");
+
+    if (lettersInChosenWord.toString() === rightGuess.toString()) {
+        wins++;
+        alert("Winner!!!");
+
+        document.getElementById("wins").textContent = wins;
+        startGame();
+    }
+
+    else if (guessesLeft === 0) {
+        losses++;
+        alert("Losser!!!");
+
+        document.getElementById("loss").textContent = losses;
+        startGame();
+    }
+    
+
+}
+
+startGame();
+
+
+document.onkeyup = function(event) {
+    if   (event.keyCode >= 65 && event.keyCode <= 90) {
+        var correctWord = event.key.toLowerCase();
+        rightLetter(correctWord);
+        roundComplete();
+     
+    }
+};

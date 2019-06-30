@@ -1,0 +1,16 @@
+.jumbotron {
+    color: purple;
+    
+}
+
+
+.container {
+    background: black;
+    color: purple;
+}
+
+#image {
+    width: 400px;
+    height: 500px;
+    margin-right: 30px;
+}
